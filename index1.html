@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>My First Leaflet</title>
+<!--<link Leaflet css and javascript-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+</head>
+<h1><b style="color:red;">สถานที่ท่องเที่ยว 5 เเห่ง ในประเทศสวีเดน<b></h1>
+<p style="color:red;"><strong><em> by Duangnaree </em></strong></p>
+<body style="background : url(Smogen01.jpg); background-size: contain; background-repeat: no-repeat;">
+<body>
+  <!--divide map bounding box -->
+  <div id="map" style="width: 800px ; height:600px"></div>
+<script>
+  var map = L.map('map').setView([59.331186005679186, 18.067794406222696],12);
+  var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+  	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">Duangnaree</a> contributors',
+  	subdomains: 'abcd',
+  	minZoom: 1,
+  	maxZoom: 16,
+  	ext: 'jpg'
+}).addTo(map);
+
+var greenIcon = L.icon({
+iconUrl: 'https://leafletjs.com/SlavaUkraini/examples/custom-icons/leaf-green.png',
+shadowUrl: 'https://leafletjs.com/SlavaUkraini/examples/custom-icons/leaf-shadow.png',
+
+iconSize: [38, 95], // size of the icon
+shadowSize: [50, 64], // size of the shadow
+iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+shadowAnchor: [4, 62], // the same for the shadow
+popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var marker = L.marker([59.327116765197104, 18.071703948092203],
+  {
+    icon:greenIcon,
+    draggable:true,
+    title:'The Royal Palace',
+    opacity:1.5
+  }
+)
+ .addTo(map)
+ .bindPopup("<b>The Royal Palace</b>")
+ .openPopup();
+var marker = L.marker([59.32816009027379, 18.091310577186345],
+  {
+    icon:greenIcon,
+    draggable:true,
+    title:'Vasa Museum',
+    opacity:1.5
+  }
+)
+  .addTo(map)
+  .bindPopup("<b>Vasa Museum</b>")
+  .openPopup();
+  var marker = L.marker([57.69535093968712, 11.99237827636242],
+    {
+      icon:greenIcon,
+      draggable:true,
+      title:'สวนสนุกลิสแบร์ (Liseberg)',
+      opacity:1.5
+    }
+  )
+    .addTo(map)
+    .bindPopup("<b>สวนสนุกลิสแบร์ (Liseberg)</b>")
+    .openPopup();
+    var marker = L.marker([58.363953493303995, 11.236819366031899],
+      {
+        icon:greenIcon,
+        draggable:true,
+        title:'หมู่บ้าน (Smogen)',
+        opacity:1.5
+      }
+    )
+      .addTo(map)
+      .bindPopup("<b>หมู่บ้าน (Smogen)</b>")
+      .openPopup();
+      var marker = L.marker([67.84987345607091, 20.596338058688044],
+        {
+          icon:greenIcon,
+          draggable:true,
+          title:'โรงแรมน้ำแข็ง (Ice Hotel)',
+          opacity:1.5
+        }
+      )
+        .addTo(map)
+        .bindPopup("<b>โรงแรมน้ำแข็ง (Ice Hotel)</b>")
+        .openPopup();
+</script>
+</body>
+</html>
